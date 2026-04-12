@@ -1,5 +1,5 @@
 /* ============================================================
-   VARIÁVEIS
+   VARIÁVEIS — modo claro (padrão)
    ============================================================ */
 :root {
   --bg:         #ffffff;
@@ -9,12 +9,37 @@
   --borda:      #e0e0e0;
   --max-w:      880px;
   --header-h:   54px;
-  /* Rodapé escuro */
+  --header-bg:  rgba(255, 255, 255, 0.96);
+  --accent:     #0e7490;
+  /* Rodapé */
   --rodape-bg:       #1c1c1c;
   --rodape-base-bg:  #141414;
   --rodape-texto:    #c4c4c4;
   --rodape-texto-2:  #888888;
   --rodape-borda:    #2e2e2e;
+  /* Form */
+  --input-bg:    #f8f8f8;
+  --input-borda: #d0d0d0;
+  --input-focus: var(--accent);
+}
+
+/* ============================================================
+   MODO ESCURO
+   ============================================================ */
+[data-tema="escuro"] {
+  --bg:         #0f0f0f;
+  --texto:      #e8e8e8;
+  --texto-2:    #aaaaaa;
+  --texto-3:    #666666;
+  --borda:      #2a2a2a;
+  --header-bg:  rgba(15, 15, 15, 0.96);
+  --rodape-bg:       #080808;
+  --rodape-base-bg:  #050505;
+  --rodape-texto:    #888888;
+  --rodape-texto-2:  #555555;
+  --rodape-borda:    #1e1e1e;
+  --input-bg:    #1a1a1a;
+  --input-borda: #333333;
 }
 
 /* ============================================================
@@ -38,6 +63,7 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 /* ============================================================
@@ -59,11 +85,11 @@ body {
   right: 0;
   z-index: 100;
   height: var(--header-h);
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.2s ease;
 }
 
 #cabecalho.com-borda {
@@ -96,7 +122,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Nav principal — 3 abas */
+/* Nav principal */
 .cabecalho-nav {
   display: flex;
   align-items: center;
@@ -119,18 +145,43 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--texto);
+  color: var(--accent);
 }
 
-/* Lado direito: seletor de idioma */
+/* Lado direito: toggle + seletor de idioma */
 .cabecalho-direita {
   display: flex;
   align-items: center;
+  gap: 0.9rem;
   flex-shrink: 0;
   margin-left: 1.5rem;
 }
 
-/* Seletor de idioma com bandeiras */
+/* Botão modo escuro */
+.tema-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--texto-3);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  line-height: 0;
+}
+
+.tema-btn:hover {
+  color: var(--texto);
+}
+
+/* Mostra lua no modo claro, sol no modo escuro */
+[data-tema="claro"]  .icone-sol { display: none; }
+[data-tema="claro"]  .icone-lua { display: block; }
+[data-tema="escuro"] .icone-lua { display: none; }
+[data-tema="escuro"] .icone-sol { display: block; }
+
+/* Seletor de idioma */
 .lang-picker {
   display: flex;
   align-items: center;
@@ -164,7 +215,7 @@ body {
 
 .lang-btn.active {
   opacity: 1;
-  outline: 1.5px solid #111111;
+  outline: 1.5px solid var(--texto);
   outline-offset: 1px;
 }
 
@@ -194,7 +245,7 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Sub-rótulo — usado dentro das seções */
+/* Sub-rótulo */
 .sub-rotulo {
   display: block;
   font-size: 0.58rem;
@@ -203,6 +254,37 @@ section {
   text-transform: uppercase;
   color: var(--texto-3);
   margin-bottom: 0.65rem;
+}
+
+/* ============================================================
+   ANIMAÇÕES DE ENTRADA
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  [data-animate="fade-in"] {
+    transform: none;
+  }
+
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-animate-stagger] {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  }
+
+  [data-animate-stagger].is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ============================================================
@@ -215,7 +297,7 @@ section {
 
 .sobre-layout {
   display: grid;
-  grid-template-columns: 1fr 180px;
+  grid-template-columns: 1fr 360px;
   gap: 3.5rem;
   align-items: start;
 }
@@ -292,33 +374,118 @@ section {
   font-size: 0.76rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--texto);
+  color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid var(--texto);
+  border-bottom: 1px solid var(--accent);
   padding-bottom: 2px;
   transition: opacity 0.2s;
+  margin-top: 1.2rem;
+  display: inline-flex;
 }
 
 .link-cv:hover {
-  opacity: 0.55;
+  opacity: 0.65;
 }
 
+/* Foto de perfil */
 .sobre-foto {
   padding-top: 0.3rem;
+  display: flex;
+  justify-content: center;
 }
 
-.foto-box {
+.foto-perfil {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  background: #f2f2f2;
+  max-width: 360px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  display: block;
+}
+
+/* GitHub Stats Widget */
+.github-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+  flex-wrap: wrap;
+}
+
+.github-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   border: 1px solid var(--borda);
+  padding: 0.65rem 1rem;
+  min-width: 80px;
+  transition: border-color 0.2s;
+}
+
+.github-stat-card:hover {
+  border-color: var(--accent);
+}
+
+.github-stat-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--texto);
+  line-height: 1.1;
+}
+
+.github-stat-label {
+  font-size: 0.57rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-3);
+}
+
+/* ============================================================
+   HABILIDADES TÉCNICAS
+   ============================================================ */
+#habilidades {
+  border-top: 1px solid var(--borda);
+}
+
+.habilidades-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.hab-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.hab-lista li {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--texto-3);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  gap: 0.6rem;
+  font-size: 0.84rem;
+  color: var(--texto-2);
+}
+
+.hab-lista i {
+  font-size: 1.1rem;
+  width: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Fallback dot for techs without devicon */
+.hab-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--texto-3);
+  flex-shrink: 0;
+  margin: 0 0.3rem;
 }
 
 /* ============================================================
@@ -328,7 +495,6 @@ section {
   border-top: 1px solid var(--borda);
 }
 
-/* Cabeçalho da seção: título + badge lado a lado */
 .iaot-cabecalho {
   display: flex;
   align-items: baseline;
@@ -338,7 +504,6 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Sobrescreve border/margin do secao-titulo pois o pai já os aplica */
 .iaot-cabecalho .secao-titulo {
   border-bottom: none;
   padding-bottom: 0;
@@ -350,14 +515,13 @@ section {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--texto-3);
-  border: 1px solid var(--borda);
+  color: var(--accent);
+  border: 1px solid var(--accent);
   padding: 0.15rem 0.55rem;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-/* Layout: texto principal + sidebar de meta */
 .iaot-layout {
   display: grid;
   grid-template-columns: 1fr 195px;
@@ -447,7 +611,7 @@ section {
   display: inline-block;
   width: 3px;
   height: 3px;
-  background: var(--texto-3);
+  background: var(--accent);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -457,69 +621,116 @@ section {
 }
 
 /* ============================================================
-   PROJETOS & PESQUISAS
+   PROJETOS — CARDS
    ============================================================ */
 #projetos {
   border-top: 1px solid var(--borda);
 }
 
-.projetos-lista {
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.projeto-card {
+  border: 1px solid var(--borda);
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  gap: 0.9rem;
+  transition: border-color 0.2s ease;
 }
 
-.projeto {
-  padding: 1.8rem 0;
-  border-bottom: 1px solid var(--borda);
+.projeto-card:hover {
+  border-color: var(--accent);
 }
 
-.projeto:first-child {
-  padding-top: 0;
-}
-
-.projeto:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.projeto-topo {
+.projeto-card-topo {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 0.55rem;
+  gap: 1rem;
 }
 
-.projeto h3 {
+.projeto-card-topo h3 {
   font-family: 'EB Garamond', serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--texto);
   line-height: 1.3;
+  margin-bottom: 0.15rem;
 }
 
-.projeto-ano {
-  font-size: 0.7rem;
+.projeto-card-ano {
+  font-size: 0.68rem;
   color: var(--texto-3);
+  display: block;
+}
+
+.projeto-card-status {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-.projeto > p {
-  font-size: 0.87rem;
-  line-height: 1.8;
-  color: var(--texto-2);
-  margin-bottom: 1rem;
+.status-dev {
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
-.projeto-rodape {
+.status-ok {
+  color: var(--texto-3);
+  border: 1px solid var(--borda);
+}
+
+.projeto-card > p {
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: var(--texto-2);
+  flex: 1;
+}
+
+.projeto-card-metrica {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--borda);
+  border-left: 2px solid var(--accent);
+}
+
+[data-tema="escuro"] .projeto-card-metrica {
+  background: #1a1a1a;
+}
+
+.metrica-valor {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.metrica-label {
+  font-size: 0.72rem;
+  color: var(--texto-3);
+}
+
+.projeto-card-rodape {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--borda);
 }
 
+/* Tags */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -527,31 +738,52 @@ section {
 }
 
 .tags span {
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   font-weight: 400;
   color: var(--texto-3);
   letter-spacing: 0.04em;
   border: 1px solid var(--borda);
   padding: 0.16rem 0.55rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.tags span:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .projeto-links {
   display: flex;
-  gap: 1.3rem;
+  gap: 1.2rem;
   flex-shrink: 0;
 }
 
 .projeto-links a {
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  color: var(--texto-2);
+  color: var(--accent);
   text-decoration: none;
   letter-spacing: 0.02em;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
 }
 
 .projeto-links a:hover {
-  color: var(--texto);
+  opacity: 0.65;
+}
+
+/* Placeholder card */
+.projeto-placeholder {
+  border-style: dashed;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+
+.placeholder-texto {
+  font-size: 0.75rem;
+  color: var(--texto-3);
+  letter-spacing: 0.06em;
+  text-align: center;
 }
 
 /* ============================================================
@@ -612,7 +844,7 @@ section {
 }
 
 /* ============================================================
-   RODAPÉ — CONTATO (fundo escuro)
+   RODAPÉ — CONTATO
    ============================================================ */
 #rodape {
   margin-top: 1rem;
@@ -621,6 +853,7 @@ section {
 .rodape-contato {
   background: var(--rodape-bg);
   padding: 3.5rem 0;
+  transition: background 0.2s ease;
 }
 
 .rodape-contato-inner {
@@ -646,12 +879,11 @@ section {
   font-size: 0.88rem;
   line-height: 1.75;
   color: var(--rodape-texto);
-  max-width: 320px;
+  margin-bottom: 1.5rem;
 }
 
 .rodape-links {
   list-style: none;
-  padding-top: 0.1rem;
 }
 
 .rodape-links li {
@@ -687,12 +919,117 @@ section {
 
 .rodape-links a:hover {
   color: #ffffff;
-  border-color: #ffffff;
+  border-color: var(--accent);
 }
 
+/* ============================================================
+   FORMULÁRIO DE CONTATO
+   ============================================================ */
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-grupo label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rodape-texto-2);
+}
+
+.form-grupo input,
+.form-grupo textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--input-borda);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.55rem 0.75rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* On dark footer, override input colors */
+.rodape-contato .form-grupo input,
+.rodape-contato .form-grupo textarea {
+  background: #1e1e1e;
+  border-color: #333333;
+  color: #c4c4c4;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-grupo input.erro,
+.form-grupo textarea.erro {
+  border-color: #c0392b;
+}
+
+.form-acoes {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.form-submit {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--accent);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.form-submit:hover {
+  opacity: 0.8;
+}
+
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-feedback {
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.form-feedback.sucesso {
+  color: #27ae60;
+}
+
+.form-feedback.erro {
+  color: #c0392b;
+}
+
+/* ============================================================
+   RODAPÉ BASE
+   ============================================================ */
 .rodape-base {
   background: var(--rodape-base-bg);
   padding: 1.3rem 0;
+  transition: background 0.2s ease;
 }
 
 .rodape-base p {
@@ -704,8 +1041,17 @@ section {
 /* ============================================================
    RESPONSIVIDADE
    ============================================================ */
+@media (max-width: 920px) {
+  .habilidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sobre-layout {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
 @media (max-width: 860px) {
-  /* Nav: reduz gap e tamanho da fonte em telas médias */
   .cabecalho-nav {
     gap: 1.1rem;
     padding-left: 1.3rem;
@@ -714,6 +1060,10 @@ section {
 
   .nav-link {
     font-size: 0.61rem;
+  }
+
+  .projetos-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -727,26 +1077,34 @@ section {
     padding-bottom: 3rem;
   }
 
-  /* Esconde a nav em mobile — usuário pode rolar */
   .cabecalho-nav {
     display: none;
   }
 
   .sobre-layout {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 2rem;
   }
 
   .sobre-foto {
     order: -1;
-    max-width: 120px;
+    max-width: 160px;
+    margin: 0 auto;
   }
 
-  .foto-box {
-    aspect-ratio: 1 / 1;
+  .foto-perfil {
+    max-width: 160px;
   }
 
-  /* IAoT */
+  .github-stats {
+    gap: 0.7rem;
+  }
+
+  .habilidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
   .iaot-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -756,7 +1114,6 @@ section {
     gap: 1.5rem;
   }
 
-  /* Pesquisa */
   .pesquisa-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -766,7 +1123,6 @@ section {
     margin-bottom: 1.5rem;
   }
 
-  /* Educação */
   .edu-item {
     grid-template-columns: 1fr;
     gap: 0.35rem;
@@ -776,21 +1132,9 @@ section {
     padding-top: 0;
   }
 
-  /* Projetos */
-  .projeto-topo {
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .projeto-rodape {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* Rodapé */
   .rodape-contato-inner {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .rodape-links li {
@@ -798,7 +1142,6 @@ section {
     gap: 0.25rem;
   }
 
-  /* Header */
   .cabecalho-inner {
     padding: 0 1.5rem;
   }

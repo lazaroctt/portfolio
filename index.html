@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tema="claro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- SEO -->
+  <meta name="description" content="Marcos Lázaro Romão Silveira — Estudante de Engenharia Elétrica com foco em Ciência de Dados, Machine Learning e IA embarcada. Brasil.">
+  <meta name="keywords" content="engenharia elétrica, machine learning, ciência de dados, inteligência artificial, IoT, edge AI, portfólio">
+  <meta name="author" content="Marcos Lázaro Romão Silveira">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Marcos Lázaro Romão Silveira — Engenharia Elétrica &amp; ML">
+  <meta property="og:description" content="Estudante de Engenharia Elétrica com foco em Ciência de Dados e Inteligência Artificial. Projetos em ML embarcado, IoT e análise de dados.">
+  <meta property="og:image"       content="IMG_1257.jpeg">
+  <meta property="og:url"         content="https://lazaroctt.github.io">
+  <meta property="og:locale"      content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Marcos Lázaro Romão Silveira — Engenharia Elétrica &amp; ML">
+  <meta name="twitter:description" content="Estudante de Engenharia Elétrica com foco em Ciência de Dados e Inteligência Artificial.">
+  <meta name="twitter:image"       content="IMG_1257.jpeg">
+
   <title>Marcos Lázaro Romão Silveira</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,13 +39,29 @@
       <div class="cabecalho-esquerda">
         <a href="#sobre" class="cabecalho-nome">Marcos Lázaro Romão Silveira</a>
         <nav class="cabecalho-nav" aria-label="Navegação principal">
-          <a href="#iaot"    class="nav-link" data-i18n="nav-iaot">Meu projeto IAoT</a>
+          <a href="#iaot"     class="nav-link" data-i18n="nav-iaot">Meu projeto IAoT</a>
           <a href="#pesquisa" class="nav-link" data-i18n="nav-pesquisa">Pesquisa Acadêmica</a>
-          <a href="#contato" class="nav-link" data-i18n="nav-contato">Contato</a>
+          <a href="#contato"  class="nav-link" data-i18n="nav-contato">Contato</a>
         </nav>
       </div>
 
       <div class="cabecalho-direita">
+        <button class="tema-btn" id="temaToggle" aria-label="Alternar modo escuro" title="Alternar modo escuro">
+          <svg class="icone-lua" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="icone-sol" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
         <div class="lang-picker" role="group" aria-label="Idioma">
           <button class="lang-btn active" data-lang="pt" title="Português (Brasil)">
             <svg viewBox="0 0 22 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -69,7 +107,7 @@
     <!-- ═══════════════════════════════════════
          QUEM SOU
          ═══════════════════════════════════════ -->
-    <section id="sobre">
+    <section id="sobre" data-animate="slide-up">
       <div class="container">
         <div class="sobre-layout">
 
@@ -88,6 +126,21 @@
               <span data-i18n="interesses-texto">Machine Learning · Processamento de Linguagem Natural · Visualização de Dados · Sistemas Elétricos Inteligentes</span>
             </p>
 
+            <div class="github-stats" id="githubStats" aria-label="GitHub Stats">
+              <div class="github-stat-card">
+                <span class="github-stat-num" id="ghRepos">—</span>
+                <span class="github-stat-label" data-i18n="github-repos">Repositórios</span>
+              </div>
+              <div class="github-stat-card">
+                <span class="github-stat-num" id="ghStars">—</span>
+                <span class="github-stat-label" data-i18n="github-stars">Estrelas recebidas</span>
+              </div>
+              <div class="github-stat-card">
+                <span class="github-stat-num" id="ghLang">—</span>
+                <span class="github-stat-label" data-i18n="github-lang">Linguagem principal</span>
+              </div>
+            </div>
+
             <a href="#" class="link-cv" download>
               <span data-i18n="link-cv-texto">Currículo (PDF)</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -102,7 +155,55 @@
           </div>
 
           <div class="sobre-foto">
-            <img src="IMG_1257.jpeg" alt="Foto de Lázaro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            <img src="IMG_1257.jpeg" alt="Foto de Marcos Lázaro" class="foto-perfil">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         HABILIDADES TÉCNICAS
+         ═══════════════════════════════════════ -->
+    <section id="habilidades" data-animate="fade-in">
+      <div class="container">
+        <h2 class="secao-titulo" data-i18n="habilidades-secao">Habilidades Técnicas</h2>
+        <div class="habilidades-grid">
+
+          <div class="hab-categoria">
+            <h3 class="sub-rotulo" data-i18n="hab-cat-linguagens">Linguagens</h3>
+            <ul class="hab-lista">
+              <li data-animate-stagger><i class="devicon-python-plain colored"></i> Python</li>
+              <li data-animate-stagger><i class="devicon-c-plain colored"></i> C</li>
+              <li data-animate-stagger><i class="devicon-matlab-plain colored"></i> MATLAB</li>
+            </ul>
+          </div>
+
+          <div class="hab-categoria">
+            <h3 class="sub-rotulo" data-i18n="hab-cat-ml">ML / IA</h3>
+            <ul class="hab-lista">
+              <li data-animate-stagger><i class="devicon-tensorflow-original colored"></i> TensorFlow Lite</li>
+              <li data-animate-stagger><i class="devicon-scikitlearn-plain colored"></i> Scikit-learn</li>
+              <li data-animate-stagger><span class="hab-dot"></span> NLP</li>
+            </ul>
+          </div>
+
+          <div class="hab-categoria">
+            <h3 class="sub-rotulo" data-i18n="hab-cat-iot">IoT / Embarcados</h3>
+            <ul class="hab-lista">
+              <li data-animate-stagger><i class="devicon-raspberrypi-plain colored"></i> Raspberry Pi</li>
+              <li data-animate-stagger><span class="hab-dot"></span> MQTT</li>
+              <li data-animate-stagger><span class="hab-dot"></span> Edge AI</li>
+            </ul>
+          </div>
+
+          <div class="hab-categoria">
+            <h3 class="sub-rotulo" data-i18n="hab-cat-ferramentas">Ferramentas</h3>
+            <ul class="hab-lista">
+              <li data-animate-stagger><i class="devicon-git-plain colored"></i> Git</li>
+              <li data-animate-stagger><i class="devicon-linux-plain"></i> Linux</li>
+              <li data-animate-stagger><i class="devicon-jupyter-plain colored"></i> Jupyter</li>
+            </ul>
           </div>
 
         </div>
@@ -112,7 +213,7 @@
     <!-- ═══════════════════════════════════════
          MEU PROJETO IAoT
          ═══════════════════════════════════════ -->
-    <section id="iaot">
+    <section id="iaot" data-animate="fade-in">
       <div class="container">
 
         <div class="iaot-cabecalho">
@@ -161,7 +262,7 @@
     <!-- ═══════════════════════════════════════
          PESQUISA ACADÊMICA
          ═══════════════════════════════════════ -->
-    <section id="pesquisa">
+    <section id="pesquisa" data-animate="fade-in">
       <div class="container">
         <h2 class="secao-titulo" data-i18n="pesquisa-secao">Pesquisa Acadêmica</h2>
 
@@ -196,57 +297,105 @@
       <div class="container">
         <h2 class="secao-titulo" data-i18n="projetos-secao">Projetos &amp; Pesquisas</h2>
 
-        <div class="projetos-lista">
+        <div class="projetos-grid">
 
-          <article class="projeto">
-            <div class="projeto-topo">
-              <h3 data-i18n="proj1-titulo">Análise de Sentimentos em Reviews</h3>
-              <span class="projeto-ano">2024</span>
+          <article class="projeto-card" data-animate="fade-in">
+            <div class="projeto-card-topo">
+              <div>
+                <h3 data-i18n="proj-iaot-titulo">IAoT — IA das Coisas</h3>
+                <span class="projeto-card-ano">2024 — atual</span>
+              </div>
+              <span class="projeto-card-status status-dev" data-i18n="proj-iaot-status">Em desenvolvimento</span>
+            </div>
+            <p data-i18n="proj-iaot-desc">Sistema autônomo de monitoramento combinando IA e IoT para inferência em tempo real na borda, com foco em baixo consumo energético e impacto social.</p>
+            <div class="projeto-card-metrica">
+              <span class="metrica-valor" data-i18n="proj-iaot-metrica-val">latência &lt; 50ms</span>
+              <span class="metrica-label" data-i18n="proj-iaot-metrica-label">inferência no edge</span>
+            </div>
+            <div class="projeto-card-rodape">
+              <div class="tags">
+                <span>Python</span><span>TensorFlow Lite</span><span>MQTT</span><span>Raspberry Pi</span>
+              </div>
+              <div class="projeto-links">
+                <a href="#iaot" data-i18n="proj-link-detalhes">Detalhes ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projeto-card" data-animate="fade-in">
+            <div class="projeto-card-topo">
+              <div>
+                <h3 data-i18n="proj1-titulo">Análise de Sentimentos em Reviews</h3>
+                <span class="projeto-card-ano">2024</span>
+              </div>
+              <span class="projeto-card-status status-ok" data-i18n="proj-status-ok">Concluído</span>
             </div>
             <p data-i18n="proj1-desc">Modelo de processamento de linguagem natural para classificar sentimentos em avaliações de produtos. Implementado com Python e scikit-learn, com pipeline de pré-processamento textual e validação cruzada estratificada.</p>
-            <div class="projeto-rodape">
+            <div class="projeto-card-metrica">
+              <span class="metrica-valor" data-i18n="proj1-metrica-val">89% acurácia</span>
+              <span class="metrica-label" data-i18n="proj1-metrica-label">no conjunto de teste</span>
+            </div>
+            <div class="projeto-card-rodape">
               <div class="tags">
                 <span>Python</span><span>NLP</span><span>Scikit-learn</span>
               </div>
               <div class="projeto-links">
-                <a href="#">GitHub ↗</a>
-                <a href="#">Demo ↗</a>
+                <a href="#" data-i18n="proj-link-github">GitHub ↗</a>
+                <a href="#" data-i18n="proj-link-demo">Demo ↗</a>
               </div>
             </div>
           </article>
 
-          <article class="projeto">
-            <div class="projeto-topo">
-              <h3 data-i18n="proj2-titulo">Dashboard Interativo de Vendas</h3>
-              <span class="projeto-ano">2024</span>
+          <article class="projeto-card" data-animate="fade-in">
+            <div class="projeto-card-topo">
+              <div>
+                <h3 data-i18n="proj2-titulo">Dashboard Interativo de Vendas</h3>
+                <span class="projeto-card-ano">2024</span>
+              </div>
+              <span class="projeto-card-status status-ok" data-i18n="proj-status-ok">Concluído</span>
             </div>
             <p data-i18n="proj2-desc">Plataforma de visualização de dados comerciais construída com Plotly e Pandas. Inclui filtros dinâmicos por período, categoria e região com atualização em tempo real e exportação de relatórios.</p>
-            <div class="projeto-rodape">
+            <div class="projeto-card-metrica">
+              <span class="metrica-valor" data-i18n="proj2-metrica-val">+12 filtros</span>
+              <span class="metrica-label" data-i18n="proj2-metrica-label">dinâmicos em tempo real</span>
+            </div>
+            <div class="projeto-card-rodape">
               <div class="tags">
                 <span>Pandas</span><span>Plotly</span><span>Python</span>
               </div>
               <div class="projeto-links">
-                <a href="#">GitHub ↗</a>
-                <a href="#">Demo ↗</a>
+                <a href="#" data-i18n="proj-link-github">GitHub ↗</a>
+                <a href="#" data-i18n="proj-link-demo">Demo ↗</a>
               </div>
             </div>
           </article>
 
-          <article class="projeto">
-            <div class="projeto-topo">
-              <h3 data-i18n="proj3-titulo">Previsão de Preços Imobiliários</h3>
-              <span class="projeto-ano">2023</span>
+          <article class="projeto-card" data-animate="fade-in">
+            <div class="projeto-card-topo">
+              <div>
+                <h3 data-i18n="proj3-titulo">Previsão de Preços Imobiliários</h3>
+                <span class="projeto-card-ano">2023</span>
+              </div>
+              <span class="projeto-card-status status-ok" data-i18n="proj-status-ok">Concluído</span>
             </div>
             <p data-i18n="proj3-desc">Modelo de regressão para estimativa de preços de imóveis com base em variáveis geográficas e estruturais. Avaliação de desempenho com métricas RMSE e R² em conjunto de validação independente.</p>
-            <div class="projeto-rodape">
+            <div class="projeto-card-metrica">
+              <span class="metrica-valor" data-i18n="proj3-metrica-val">R² = 0.91</span>
+              <span class="metrica-label" data-i18n="proj3-metrica-label">no conjunto de validação</span>
+            </div>
+            <div class="projeto-card-rodape">
               <div class="tags">
                 <span>Regressão</span><span>NumPy</span><span>Machine Learning</span>
               </div>
               <div class="projeto-links">
-                <a href="#">GitHub ↗</a>
-                <a href="#">Demo ↗</a>
+                <a href="#" data-i18n="proj-link-github">GitHub ↗</a>
+                <a href="#" data-i18n="proj-link-demo">Demo ↗</a>
               </div>
             </div>
+          </article>
+
+          <article class="projeto-card projeto-placeholder" data-animate="fade-in">
+            <p class="placeholder-texto" data-i18n="proj-placeholder">Próximo projeto em breve</p>
           </article>
 
         </div>
@@ -256,7 +405,7 @@
     <!-- ═══════════════════════════════════════
          EDUCAÇÃO
          ═══════════════════════════════════════ -->
-    <section id="educacao">
+    <section id="educacao" data-animate="fade-in">
       <div class="container">
         <h2 class="secao-titulo" data-i18n="edu-secao">Educação</h2>
 
@@ -298,22 +447,44 @@
           <div class="rodape-col-texto">
             <p class="rodape-secao-label" data-i18n="rodape-label">Contato</p>
             <p class="rodape-intro" data-i18n="rodape-intro">Aberto a colaborações, oportunidades de pesquisa e conversas sobre dados e inteligência artificial.</p>
+            <ul class="rodape-links">
+              <li>
+                <span class="rodape-rotulo" data-i18n="rodape-email">E-mail</span>
+                <a href="mailto:seuemail@email.com">seuemail@email.com</a>
+              </li>
+              <li>
+                <span class="rodape-rotulo" data-i18n="rodape-linkedin">LinkedIn</span>
+                <a href="https://linkedin.com/in/seuperfil" target="_blank" rel="noopener">linkedin.com/in/seuperfil</a>
+              </li>
+              <li>
+                <span class="rodape-rotulo" data-i18n="rodape-github">GitHub</span>
+                <a href="https://github.com/lazaroctt" target="_blank" rel="noopener">github.com/lazaroctt</a>
+              </li>
+            </ul>
           </div>
 
-          <ul class="rodape-links">
-            <li>
-              <span class="rodape-rotulo" data-i18n="rodape-email">E-mail</span>
-              <a href="mailto:seuemail@email.com">seuemail@email.com</a>
-            </li>
-            <li>
-              <span class="rodape-rotulo" data-i18n="rodape-linkedin">LinkedIn</span>
-              <a href="https://linkedin.com/in/seuperfil" target="_blank" rel="noopener">linkedin.com/in/seuperfil</a>
-            </li>
-            <li>
-              <span class="rodape-rotulo" data-i18n="rodape-github">GitHub</span>
-              <a href="https://github.com/seuperfil" target="_blank" rel="noopener">github.com/seuperfil</a>
-            </li>
-          </ul>
+          <form class="contato-form" id="contatoForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-grupo">
+              <label for="form-nome-input" data-i18n="form-nome">Nome</label>
+              <input type="text" id="form-nome-input" name="nome" autocomplete="name" required>
+            </div>
+            <div class="form-grupo">
+              <label for="form-email-input" data-i18n="form-email">E-mail</label>
+              <input type="email" id="form-email-input" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-grupo">
+              <label for="form-assunto-input" data-i18n="form-assunto">Assunto</label>
+              <input type="text" id="form-assunto-input" name="assunto" required>
+            </div>
+            <div class="form-grupo">
+              <label for="form-mensagem-input" data-i18n="form-mensagem">Mensagem</label>
+              <textarea id="form-mensagem-input" name="mensagem" rows="4" required></textarea>
+            </div>
+            <div class="form-acoes">
+              <button type="submit" class="form-submit" data-i18n="form-enviar">Enviar mensagem</button>
+              <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+            </div>
+          </form>
 
         </div>
       </div>
