@@ -5,8 +5,13 @@
 const TRADUCOES = {
 
   pt: {
+    /* ——— Geral ——— */
     'page-title':        'Marcos Lázaro Romão Silveira — Portfólio',
+    /* ——— Cabeçalho / nav ——— */
+    'nav-iaot':          'Meu projeto IAoT',
+    'nav-pesquisa':      'Pesquisa Acadêmica',
     'nav-contato':       'Contato',
+    /* ——— Sobre ——— */
     'sobre-cargo':       'Engenharia Elétrica · Ciência de Dados · Machine Learning',
     'sobre-local':       'Brasil',
     'bio-p1':            'Estudante de <strong>Engenharia Elétrica</strong> com foco em Ciência de Dados e Inteligência Artificial. Atuo na intersecção de modelos matemáticos, aprendizado de máquina e aplicações com impacto prático.',
@@ -15,6 +20,28 @@ const TRADUCOES = {
     'interesses-texto':  'Machine Learning · Processamento de Linguagem Natural · Visualização de Dados · Sistemas Elétricos Inteligentes',
     'link-cv-texto':     'Currículo (PDF)',
     'foto-texto':        'Foto',
+    /* ——— IAoT ——— */
+    'iaot-badge':        'Em desenvolvimento',
+    'iaot-desc':         'IAoT é um projeto acadêmico pessoal em desenvolvimento contínuo. Combina técnicas de Inteligência Artificial com infraestrutura de Internet das Coisas para criar sistemas autônomos de monitoramento e tomada de decisão com baixo consumo energético.',
+    'iaot-obj-label':    'Objetivos',
+    'iaot-obj1':         'Desenvolver modelos de ML embarcados em dispositivos de baixo consumo',
+    'iaot-obj2':         'Criar protocolo de comunicação otimizado para dados sensoriais',
+    'iaot-obj3':         'Implementar inferência em tempo real na borda (edge computing)',
+    'iaot-obj4':         'Explorar aplicações em contextos de impacto social',
+    'iaot-status-label': 'Status',
+    'iaot-status':       'Em desenvolvimento ativo — fase de prototipagem',
+    'iaot-stack-label':  'Stack',
+    /* ——— Pesquisa ——— */
+    'pesquisa-secao':       'Pesquisa Acadêmica',
+    'pesquisa-intro':       'Meus interesses de pesquisa situam-se na fronteira entre sistemas físicos e modelos computacionais. Busco contribuições que combinem rigor matemático com aplicabilidade prática.',
+    'pesquisa-areas-label': 'Áreas de interesse',
+    'pesquisa-area1':       'Aprendizado de Máquina em Sistemas Elétricos',
+    'pesquisa-area2':       'Processamento de Sinais com Redes Neurais',
+    'pesquisa-area3':       'Edge AI e computação embarcada',
+    'pesquisa-area4':       'Modelos preditivos para dados temporais',
+    'pesquisa-atual-label': 'Trabalho atual',
+    'pesquisa-atual':       'Atualmente desenvolvendo o projeto IAoT, com foco em inferência eficiente de modelos de classificação em hardware de baixo custo. Paralelamente, estudo técnicas de compressão de redes neurais para aplicação em ambientes com restrição de memória.',
+    /* ——— Projetos ——— */
     'projetos-secao':    'Projetos & Pesquisas',
     'proj1-titulo':      'Análise de Sentimentos em Reviews',
     'proj1-desc':        'Modelo de processamento de linguagem natural para classificar sentimentos em avaliações de produtos. Implementado com Python e scikit-learn, com pipeline de pré-processamento textual e validação cruzada estratificada.',
@@ -22,6 +49,7 @@ const TRADUCOES = {
     'proj2-desc':        'Plataforma de visualização de dados comerciais construída com Plotly e Pandas. Inclui filtros dinâmicos por período, categoria e região com atualização em tempo real e exportação de relatórios.',
     'proj3-titulo':      'Previsão de Preços Imobiliários',
     'proj3-desc':        'Modelo de regressão para estimativa de preços de imóveis com base em variáveis geográficas e estruturais. Avaliação de desempenho com métricas RMSE e R² em conjunto de validação independente.',
+    /* ——— Educação ——— */
     'edu-secao':         'Educação',
     'edu1-titulo':       'Bacharelado em Engenharia Elétrica',
     'edu1-inst':         'Universidade XYZ — Brasil',
@@ -29,6 +57,7 @@ const TRADUCOES = {
     'edu2-titulo':       'Machine Learning Specialization',
     'edu2-inst':         'DeepLearning.AI — Coursera',
     'edu2-detalhe':      'Supervised Learning, Unsupervised Learning e Reinforcement Learning. Projetos práticos em Python com TensorFlow.',
+    /* ——— Rodapé ——— */
     'rodape-label':      'Contato',
     'rodape-intro':      'Aberto a colaborações, oportunidades de pesquisa e conversas sobre dados e inteligência artificial.',
     'rodape-email':      'E-mail',
@@ -39,6 +68,8 @@ const TRADUCOES = {
 
   en: {
     'page-title':        'Marcos Lázaro Romão Silveira — Portfolio',
+    'nav-iaot':          'My IAoT Project',
+    'nav-pesquisa':      'Academic Research',
     'nav-contato':       'Contact',
     'sobre-cargo':       'Electrical Engineering · Data Science · Machine Learning',
     'sobre-local':       'Brazil',
@@ -48,6 +79,25 @@ const TRADUCOES = {
     'interesses-texto':  'Machine Learning · Natural Language Processing · Data Visualization · Intelligent Electrical Systems',
     'link-cv-texto':     'Resume (PDF)',
     'foto-texto':        'Photo',
+    'iaot-badge':        'In development',
+    'iaot-desc':         'IAoT is a personal academic project in continuous development. It combines Artificial Intelligence techniques with Internet of Things infrastructure to create autonomous monitoring and decision-making systems with low power consumption.',
+    'iaot-obj-label':    'Objectives',
+    'iaot-obj1':         'Develop embedded ML models for low-power devices',
+    'iaot-obj2':         'Create an optimized communication protocol for sensor data',
+    'iaot-obj3':         'Implement real-time inference at the edge (edge computing)',
+    'iaot-obj4':         'Explore applications in social impact contexts',
+    'iaot-status-label': 'Status',
+    'iaot-status':       'Active development — prototyping phase',
+    'iaot-stack-label':  'Stack',
+    'pesquisa-secao':       'Academic Research',
+    'pesquisa-intro':       'My research interests lie at the frontier between physical systems and computational models. I seek contributions that combine mathematical rigor with practical applicability.',
+    'pesquisa-areas-label': 'Areas of interest',
+    'pesquisa-area1':       'Machine Learning in Electrical Systems',
+    'pesquisa-area2':       'Signal Processing with Neural Networks',
+    'pesquisa-area3':       'Edge AI and embedded computing',
+    'pesquisa-area4':       'Predictive models for temporal data',
+    'pesquisa-atual-label': 'Current work',
+    'pesquisa-atual':       'Currently developing the IAoT project, focusing on efficient inference of classification models on low-cost hardware. In parallel, studying neural network compression techniques for application in memory-constrained environments.',
     'projetos-secao':    'Projects & Research',
     'proj1-titulo':      'Sentiment Analysis in Reviews',
     'proj1-desc':        'Natural language processing model to classify sentiments in product reviews. Implemented with Python and scikit-learn, with a text preprocessing pipeline and stratified cross-validation.',
@@ -72,6 +122,8 @@ const TRADUCOES = {
 
   de: {
     'page-title':        'Marcos Lázaro Romão Silveira — Portfolio',
+    'nav-iaot':          'Mein IAoT-Projekt',
+    'nav-pesquisa':      'Akademische Forschung',
     'nav-contato':       'Kontakt',
     'sobre-cargo':       'Elektrotechnik · Datenwissenschaft · Machine Learning',
     'sobre-local':       'Brasilien',
@@ -81,6 +133,25 @@ const TRADUCOES = {
     'interesses-texto':  'Machine Learning · Verarbeitung natürlicher Sprache · Datenvisualisierung · Intelligente elektrische Systeme',
     'link-cv-texto':     'Lebenslauf (PDF)',
     'foto-texto':        'Foto',
+    'iaot-badge':        'In Entwicklung',
+    'iaot-desc':         'IAoT ist ein persönliches akademisches Projekt in kontinuierlicher Entwicklung. Es kombiniert Techniken der Künstlichen Intelligenz mit Internet-der-Dinge-Infrastruktur, um autonome Überwachungs- und Entscheidungssysteme mit niedrigem Energieverbrauch zu schaffen.',
+    'iaot-obj-label':    'Ziele',
+    'iaot-obj1':         'ML-Modelle für energiesparende Geräte entwickeln',
+    'iaot-obj2':         'Optimiertes Kommunikationsprotokoll für Sensordaten erstellen',
+    'iaot-obj3':         'Echtzeit-Inferenz am Rand (Edge Computing) implementieren',
+    'iaot-obj4':         'Anwendungen in Kontexten mit sozialem Impact erkunden',
+    'iaot-status-label': 'Status',
+    'iaot-status':       'Aktive Entwicklung — Prototypisierungsphase',
+    'iaot-stack-label':  'Stack',
+    'pesquisa-secao':       'Akademische Forschung',
+    'pesquisa-intro':       'Meine Forschungsinteressen liegen an der Grenze zwischen physikalischen Systemen und Rechenmodellen. Ich suche Beiträge, die mathematische Strenge mit praktischer Anwendbarkeit verbinden.',
+    'pesquisa-areas-label': 'Interessengebiete',
+    'pesquisa-area1':       'Maschinelles Lernen in elektrischen Systemen',
+    'pesquisa-area2':       'Signalverarbeitung mit neuronalen Netzen',
+    'pesquisa-area3':       'Edge AI und eingebettetes Computing',
+    'pesquisa-area4':       'Prädiktive Modelle für Zeitreihendaten',
+    'pesquisa-atual-label': 'Aktuelle Arbeit',
+    'pesquisa-atual':       'Derzeit entwickle ich das IAoT-Projekt mit Fokus auf effizienter Inferenz von Klassifikationsmodellen auf kostengünstiger Hardware. Parallel dazu studiere ich Techniken zur Komprimierung neuronaler Netze für den Einsatz in speicherbeschränkten Umgebungen.',
     'projetos-secao':    'Projekte & Forschung',
     'proj1-titulo':      'Sentimentanalyse in Bewertungen',
     'proj1-desc':        'Modell zur Verarbeitung natürlicher Sprache zur Klassifizierung von Stimmungen in Produktbewertungen. Implementiert mit Python und scikit-learn, mit Textvorverarbeitungs-Pipeline und stratifizierter Kreuzvalidierung.',
@@ -105,6 +176,8 @@ const TRADUCOES = {
 
   es: {
     'page-title':        'Marcos Lázaro Romão Silveira — Portafolio',
+    'nav-iaot':          'Mi proyecto IAoT',
+    'nav-pesquisa':      'Investigación Académica',
     'nav-contato':       'Contacto',
     'sobre-cargo':       'Ingeniería Eléctrica · Ciencia de Datos · Machine Learning',
     'sobre-local':       'Brasil',
@@ -114,6 +187,25 @@ const TRADUCOES = {
     'interesses-texto':  'Machine Learning · Procesamiento de Lenguaje Natural · Visualización de Datos · Sistemas Eléctricos Inteligentes',
     'link-cv-texto':     'Currículum (PDF)',
     'foto-texto':        'Foto',
+    'iaot-badge':        'En desarrollo',
+    'iaot-desc':         'IAoT es un proyecto académico personal en desarrollo continuo. Combina técnicas de Inteligencia Artificial con infraestructura de Internet de las Cosas para crear sistemas autónomos de monitoreo y toma de decisiones con bajo consumo energético.',
+    'iaot-obj-label':    'Objetivos',
+    'iaot-obj1':         'Desarrollar modelos de ML embebidos en dispositivos de bajo consumo',
+    'iaot-obj2':         'Crear protocolo de comunicación optimizado para datos sensoriales',
+    'iaot-obj3':         'Implementar inferencia en tiempo real en el borde (edge computing)',
+    'iaot-obj4':         'Explorar aplicaciones en contextos de impacto social',
+    'iaot-status-label': 'Estado',
+    'iaot-status':       'Desarrollo activo — fase de prototipado',
+    'iaot-stack-label':  'Stack',
+    'pesquisa-secao':       'Investigación Académica',
+    'pesquisa-intro':       'Mis intereses de investigación se sitúan en la frontera entre sistemas físicos y modelos computacionales. Busco contribuciones que combinen rigor matemático con aplicabilidad práctica.',
+    'pesquisa-areas-label': 'Áreas de interés',
+    'pesquisa-area1':       'Aprendizaje Automático en Sistemas Eléctricos',
+    'pesquisa-area2':       'Procesamiento de Señales con Redes Neuronales',
+    'pesquisa-area3':       'Edge AI y computación embebida',
+    'pesquisa-area4':       'Modelos predictivos para datos temporales',
+    'pesquisa-atual-label': 'Trabajo actual',
+    'pesquisa-atual':       'Actualmente desarrollando el proyecto IAoT, con foco en inferencia eficiente de modelos de clasificación en hardware de bajo costo. Paralelamente, estudio técnicas de compresión de redes neuronales para aplicación en entornos con restricción de memoria.',
     'projetos-secao':    'Proyectos & Investigación',
     'proj1-titulo':      'Análisis de Sentimientos en Reseñas',
     'proj1-desc':        'Modelo de procesamiento de lenguaje natural para clasificar sentimientos en reseñas de productos. Implementado con Python y scikit-learn, con pipeline de preprocesamiento textual y validación cruzada estratificada.',
@@ -208,3 +300,24 @@ const cabecalho = document.getElementById('cabecalho');
 window.addEventListener('scroll', () => {
   cabecalho.classList.toggle('com-borda', window.scrollY > 10);
 }, { passive: true });
+
+// ============================================================
+// NAV — destaque da aba ativa conforme scroll
+// ============================================================
+const navLinks = document.querySelectorAll('.nav-link');
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+['iaot', 'pesquisa', 'contato'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) navObserver.observe(el);
+});
